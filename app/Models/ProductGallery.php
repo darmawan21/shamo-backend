@@ -14,7 +14,7 @@ class ProductGallery extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var string[]
+     * @var array
      */
     protected $fillable = [
         'products_id',

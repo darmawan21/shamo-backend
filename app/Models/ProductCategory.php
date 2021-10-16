@@ -13,10 +13,10 @@ class ProductCategory extends Model
      /**
      * The attributes that are mass assignable.
      *
-     * @var string[]
+     * @var array
      */
     protected $fillable = [
-        'name'
+        'name',
     ];
 
     public function products()

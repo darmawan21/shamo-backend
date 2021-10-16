@@ -13,7 +13,7 @@ class Transaction extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var string[]
+     * @var array
      */
     protected $fillable = [
         'users_id',
@@ -21,7 +21,7 @@ class Transaction extends Model
         'payment',
         'total_price',
         'shipping_price',
-        'status'
+        'status',
     ];
 
     public function user()
