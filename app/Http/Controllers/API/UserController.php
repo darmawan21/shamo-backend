@@ -80,8 +80,14 @@ class UserController extends Controller
         } catch (Exception $error) {
             return ResponseFormatter::error([
                 'message' => 'Something went wrong',
-                'error' => $error
+                'error' => $error,
             ], 'Authentication Failed', 500);
         }
     }
+
+    public function fetch(Request $request)
+    {
+        return ResponseFormatter::success($request->user(), 'Data profil user berhasil diambil');
+    }
+
 }
