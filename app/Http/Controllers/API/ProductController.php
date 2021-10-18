@@ -12,8 +12,8 @@ class ProductController extends Controller
     public function all(Request $request)
     {
         $id = $request->input('id');
-        $limit = $request->input('limit');
-        $name = $request->input('id');
+        $limit = $request->input('limit', 6);
+        $name = $request->input('name');
         $description = $request->input('description');
         $tags = $request->input('tags');
         $categories = $request->input('categories');
@@ -23,7 +23,7 @@ class ProductController extends Controller
 
         if($id)
         {
-            $product = Product::with(['categories', 'galleries'])->find($id);
+            $product = Product::with(['category', 'galleries'])->find($id);
 
             if($product) {
                 return ResponseFormatter::success(
@@ -39,7 +39,7 @@ class ProductController extends Controller
             }
         }
 
-        $product = Product::with(['categories', 'galleries']);
+        $product = Product::with(['category', 'galleries']);
 
         if($name) {
             $product->where('name', 'like', '%' . $name . '%');
@@ -62,7 +62,7 @@ class ProductController extends Controller
         }
 
         if($categories) {
-            $product->where('cate$categories', $categories);
+            $product->where('categories_id', $categories);
         }
 
         return ResponseFormatter::success(
