@@ -57,9 +57,9 @@ class TransactionController extends Controller
         $request->validate([
             'items' => 'required|array',
             'items.*.id' => 'exists:products,id',
-            'totol_price' => 'required',
+            'total_price' => 'required',
             'shipping_price' => 'required',
-            'status' => 'required|in:PENDING,SUCCESS,CANCELLED,FAILED,SHIPPING,SHIPPED'
+            'status' => 'required|in:PENDING,SUCCESS,CANCELLED,FAILED,SHIPPING,SHIPPED',
         ]);
 
         $transaction = Transaction::create([
